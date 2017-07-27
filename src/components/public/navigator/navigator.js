@@ -2,9 +2,8 @@ import React from 'react';
 import styles from './navigator.css';
 import { Layout, Menu, Icon, Row, Col } from 'antd';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 class navigator extends React.Component {
   constructor(props) {
@@ -25,8 +24,8 @@ class navigator extends React.Component {
         <Header className={styles.header}>
           <div>
             <Row>
-              <Col span={2} />
-              <Col span={20}>
+              <Col span={3} />
+              <Col span={18}>
                 <div className={styles.logo}>
                   <img src={require('./img/logo-50.png')} height={50} width={50}/>
                 </div>
@@ -35,7 +34,7 @@ class navigator extends React.Component {
                     onClick={this.handleClick}
                     selectedKeys={[this.state.current]}
                     mode="horizontal"
-                    style={{lineHeight: '48px',}}
+                    style={{ lineHeight: '48px',}}
                   >
                     <Menu.Item key="mail">
                       首页
@@ -58,7 +57,7 @@ class navigator extends React.Component {
                 </div>
 
               </Col>
-              <Col span={2} />
+              <Col span={3} />
             </Row>
           </div>
         </Header>
