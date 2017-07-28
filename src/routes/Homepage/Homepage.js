@@ -10,8 +10,9 @@ const Homepage = () => {
       <Navigator />
       <div className={styles.container}>
         <Row>
-          <Col span={3} />
-          <Col span={18}>
+          <Col xs={0} md={3} />
+          <Col xs={24} md={18}>
+            <div>
             <Row gutter={16}>
               <Col span={16}>
                 <div className={styles.wrap}>
@@ -23,19 +24,35 @@ const Homepage = () => {
                        </div>
                      </div>
                      <div className={styles.thumbnail}>
-                       <img src='http://flystation.image.alimmdn.com/blog/blogBackground/lantern.png' height={125} width={200}/>
+                       <img src='http://flystation.image.alimmdn.com/blog/blogBackground/lantern.png' height={125} width={200} />
                      </div>
                    </div>
                 </div>
               </Col>
               <Col span={8}>
-                <div className="rightNav">
-
+                <div className={styles.rightNav}>
+                  <div className={styles.readMostContainer}>
+                    <div className={styles.rightNavHeader}>
+                      <div className={styles.rightNavTitle}>
+                        <Icon type="like-o" /> 阅读最多
+                      </div>
+                    </div>
+                    <div className={styles.mostReadContent}>
+                      lantern访问facebook等国外网站
+                    </div>
+                    <div className={styles.mostReadContent}>
+                      lantern访问facebook等国外网站
+                    </div>
+                    <div className={styles.mostReadContent}>
+                      lantern访问facebook等国外网站
+                    </div>
+                  </div>
                 </div>
               </Col>
             </Row>
+            </div>
           </Col>
-          <Col span={3} />
+          <Col xs={0} md={3} />
         </Row>
       </div>
     </div>

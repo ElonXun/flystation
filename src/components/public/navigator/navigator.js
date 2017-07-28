@@ -24,8 +24,8 @@ class navigator extends React.Component {
         <Header className={styles.header}>
           <div>
             <Row>
-              <Col span={3} />
-              <Col span={18}>
+              <Col xs={0} md={3} />
+              <Col xs={24} md={18}>
                 <div className={styles.logo}>
                   <img src={require('./img/logo-50.png')} height={50} width={50}/>
                 </div>
@@ -57,7 +57,7 @@ class navigator extends React.Component {
                 </div>
 
               </Col>
-              <Col span={3} />
+              <Col xs={0} md={3} />
             </Row>
           </div>
         </Header>
