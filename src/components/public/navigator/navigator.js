@@ -13,7 +13,12 @@ class navigator extends React.Component {
     };
   }
   handleClick = (e) => {
-    console.log('click ', e);
+    console.log('click ', `${e.key}点击`);
+    // switch (e.key) {
+    //   case 'realStuff': this.context.router.push('')
+    //     break;
+    //   case ''
+    // }
     this.setState({
       current: e.key,
     });
@@ -27,28 +32,30 @@ class navigator extends React.Component {
               <Col xs={0} md={3} />
               <Col xs={24} md={18}>
                 <div className={styles.logo}>
-                  <img src={require('./img/logo-50.png')} height={50} width={50}/>
+                  <img src={require('./img/logo-50.png')} height={50} width={50} />
                 </div>
                 <div className={styles.rightNavigator}>
                   <Menu
                     onClick={this.handleClick}
                     selectedKeys={[this.state.current]}
                     mode="horizontal"
-                    style={{ lineHeight: '48px',}}
+                    style={{ lineHeight: '48px' }}
                   >
                     <Menu.Item key="mail">
                       首页
                     </Menu.Item>
-                    <SubMenu title={
-                      <span>
+                    <SubMenu
+                      title={
+                        <span>
                         博客
                       </span>
-                    }>
-                      <Menu.Item key="setting:1">
-                        <Icon type="book" id={styles.iconWrap}/>干货
+                    }
+                    >
+                      <Menu.Item key="realStuff">
+                        <Icon type="book" id={styles.iconWrap} />干货
                       </Menu.Item>
-                      <Menu.Item key="setting:2"><Icon type="compass" id={styles.iconWrap}/>杂记</Menu.Item>
-                      <Menu.Item key="setting:3"><Icon type="flag" id={styles.iconWrap}/>游记</Menu.Item>
+                      <Menu.Item key="note"><Icon type="compass" id={styles.iconWrap} />杂记</Menu.Item>
+                      <Menu.Item key="travel"><Icon type="flag" id={styles.iconWrap} />游记</Menu.Item>
                     </SubMenu>
                     <Menu.Item key="alipay">
                       关于

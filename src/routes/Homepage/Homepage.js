@@ -14,7 +14,7 @@ const article = {
   blogThumbnail: 'http://flystation.image.alimmdn.com/blog/blogBackground/tencentBlog.jpg',
 };
 
-const Homepage = () => {
+const Homepage = ({params}) => {
   return (
     <div>
       <Navigator />
@@ -29,7 +29,7 @@ const Homepage = () => {
                     <ArticleSelect article={article} />
                     {
                       data.data.map((val, index) => {
-                        return (<ArticleSelect article={val} />);
+                        return (<ArticleSelect key={index} article={val} />);
                       })
                     }
                   </div>

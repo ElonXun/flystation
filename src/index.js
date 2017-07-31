@@ -1,14 +1,12 @@
 import dva from 'dva';
 import './index.css';
+import data from './data';
 
 // 1. Initialize
 const app = dva({
-    initialState: {
-      products: [
-        { name: 'dva', id: 1 },
-        { name: 'antd', id: 2},
-      ]
-    }
+  initialState: {
+    data: data.data,
+  },
 });
 
 // 2. Plugins
