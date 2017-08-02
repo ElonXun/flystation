@@ -4,9 +4,10 @@ import data from './data';
 
 // 1. Initialize
 const app = dva({
-  initialState: {
-    data: data.data,
-  },
+  // initialState: {
+  //   blog: data.data,
+  //   blogTypeVisibilityFilter: 'SHOW_ALL_BLOG',
+  // },
 });
 
 // 2. Plugins
@@ -14,6 +15,7 @@ const app = dva({
 
 // 3. Model
 app.model(require('./models/products'));
+app.model(require('./models/navigator'));
 
 // 4. Router
 app.router(require('./router'));

@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 import {
   Table,
   Popconfirm,
-  Button
+  Button,
 } from 'antd';
 
-const ProductList = ({onDelete,products}) => {
+const ProductList = ({ onDelete, products }) => {
   const columns = [{
     title: 'Name',
     dataIndex: 'name',
   }, {
     title: 'Actions',
     render: (text, record) => {
+      console.log('components/ProductList.js')
       return (
         <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
           <Button>Delete</Button>

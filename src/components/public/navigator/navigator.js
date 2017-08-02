@@ -14,11 +14,16 @@ class navigator extends React.Component {
   }
   handleClick = (e) => {
     console.log('click ', `${e.key}点击`);
-    // switch (e.key) {
-    //   case 'realStuff': this.context.router.push('')
-    //     break;
-    //   case ''
-    // }
+    switch (e.key) {
+      case 'realStuff': this.props.blogFilter(0);
+        break;
+      case 'note':this.props.blogFilter(1);
+        break;
+      case 'travel':this.props.blogFilter(2);
+        break;
+      default:
+        break;
+    }
     this.setState({
       current: e.key,
     });
@@ -51,7 +56,7 @@ class navigator extends React.Component {
                       </span>
                     }
                     >
-                      <Menu.Item key="realStuff">
+                      <Menu.Item key="realStuff" >
                         <Icon type="book" id={styles.iconWrap} />干货
                       </Menu.Item>
                       <Menu.Item key="note"><Icon type="compass" id={styles.iconWrap} />杂记</Menu.Item>

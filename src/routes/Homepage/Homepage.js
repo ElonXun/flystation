@@ -5,7 +5,7 @@ import { Tag, Row, Col } from 'antd';
 import Navigator from '../../components/public/navigator/navigator.js';
 import RightNavHeader from '../../components/public/rightNavHeader/navHeader.js';
 import ArticleSelect from '../../components/public/articleSelect/articleSelect';
-import data from '../../data.js';
+// import data from '../../data.js';
 
 const article = {
   blogTitle: '腾讯传评',
@@ -13,11 +13,22 @@ const article = {
   blogReadNum: '234',
   blogThumbnail: 'http://flystation.image.alimmdn.com/blog/blogBackground/tencentBlog.jpg',
 };
-
-const Homepage = ({params}) => {
+const Homepage = ({ params, dispatch, blogs }) => {
+  function blogFilter(type) {
+    switch (type) {
+      case 0:dispatch({ type: 'blog/blogTypeVisibilityFilter', payload: 'SHOW_REALSTUFF' });
+        break;
+      case 1:dispatch({ type: 'blog/blogTypeVisibilityFilter', payload: 'SHOW_NOTE' });
+        break;
+      case 2:dispatch({ type: 'blog/blogTypeVisibilityFilter', payload: 'SHOW_TRAVEL' });
+        break;
+      default:
+        break;
+    }
+  }
   return (
     <div>
-      <Navigator />
+      <Navigator blogFilter={blogFilter} />
       <div className={styles.container}>
         <Row>
           <Col xs={0} md={3} />
@@ -28,7 +39,7 @@ const Homepage = ({params}) => {
                   <div className={styles.wrap}>
                     <ArticleSelect article={article} />
                     {
-                      data.data.map((val, index) => {
+                      blogs.map((val, index) => {
                         return (<ArticleSelect key={index} article={val} />);
                       })
                     }
@@ -65,8 +76,24 @@ const Homepage = ({params}) => {
     </div>
   );
 };
-
 Homepage.propTypes = {
 };
+const getVisibleBlogs = (blogs, filter) => {
+  switch (filter) {
+    case 'SHOW_ALL_BLOG':
+      return blogs;
+    case 'SHOW_REALSTUFF':
+      return blogs.filter(t => t.blogType === 0);
+    case 'SHOW_NOTE':
+      return blogs.filter(t => t.blogType === 1);
+    case 'SHOW_TRAVEL':
+      return blogs.filter(t => t.blogType === 2);
+    default:
+      // throw new Error('Unknown filter:'+filter);
+  }
+};
 
-export default connect()(Homepage);
+const mapStateToProps = ({blog}) => ({
+  blogs: getVisibleBlogs(blog.blogs, blog.blogTypeVisibilityFilter),
+});
+export default connect(mapStateToProps)(Homepage);

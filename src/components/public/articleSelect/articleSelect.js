@@ -7,7 +7,7 @@ const articleSelect = ({ article }) => {
       <div className={styles.titleContainer}>
         <div className={styles.titleWrap}>
           <p className={styles.title}>{article.blogTitle}</p>
-          <p className={styles.subTitle}>{article.createTime} 阅读量:{article.blogReadNum}</p>
+          <p className={styles.subTitle}>{article.createTime} 阅读量:{article.blogReadNum} {article.blogType}</p>
         </div>
       </div>
       <div className={styles.thumbnail}>
